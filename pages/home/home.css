@@ -1,0 +1,124 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.image-wolf {
+  border-radius: 50%;
+  width: 13rem;
+  height: 13rem;
+  margin: 2rem 0;
+}
+
+.container-description {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.welcome-title {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.welcome-subtitle {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-description {
+  line-height: 1.5625rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  /* max-width: 90%; */
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  gap: 0 1rem;
+}
+
+.welcome-buttons {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  border: solid 1px #0000006e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-button {
+  background-color: #eea302;
+}
+
+.projects-button {
+  background-color: #ff3619;
+}
+
+.contact-button {
+  background-color: #80d8da;
+}
+
+.container-buttons a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.container-buttons a:hover {
+  background-color: transparent;
+  transition: all 0.4s linear;
+}
+
+@media only screen and (min-width: 481px) {
+  .image-wolf {
+    width: 15rem;
+    height: 15rem;
+  }
+  .welcome-description {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  .welcome-buttons {
+    font-size: 1.3125rem;
+    height: 7rem;
+    width: 7rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .welcome-container {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    /* gap: 2rem; */
+  }
+  .image-wolf {
+    width: 20rem;
+    height: 20rem;
+    margin: 2rem;
+  }
+  .container-description {
+    margin-top: 2rem;
+    /* margin-right: 2rem; */
+    margin-bottom: 2rem;
+  }
+  .welcome-title {
+    text-align: center;
+    font-size: 5rem;
+  }
+  .welcome-description {
+    text-align: justify;
+  }
+  .container-buttons {
+    gap: 0 2rem;
+  }
+}
