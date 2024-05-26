@@ -33,7 +33,9 @@
 .welcome-description {
   line-height: 1.5625rem;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: justify;
+  margin: 0 1rem;
+  /* width: 90%; */
   /* max-width: 90%; */
 }
 

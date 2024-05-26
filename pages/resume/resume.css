@@ -17,18 +17,25 @@
 }
 
 .resume-section-container {
+  /* background-color: rgb(241, 234, 226);
+  padding: 5%; */
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .resume-section-info-container {
+  /* background-color: rgb(216, 210, 203);
+  padding: 2%; */
+  border-radius: 1rem;
   display: flex;
   flex-direction: column-reverse;
   align-items: baseline;
   text-align: justify;
   gap: 1.25rem;
   max-width: 692px;
+  margin-bottom: 5%;
 }
 
 .resume-section-info {
@@ -46,6 +53,10 @@
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
 }
+.resume-section-container {
+  display: flex;
+  justify-self: baseline;
+}
 .resume-section-info-list {
   width: 100%;
   max-width: 692px;
@@ -57,7 +68,6 @@
     max-width: 90%;
   }
   .resume-section-title {
-    width: 100%;
     max-width: 90%;
   }
   .resume-section-container {
@@ -71,7 +81,6 @@
     gap: 0;
   }
   .resume-section-info {
-    width: 100%;
     max-width: 90%;
   }
   .resume-section-info-date {
@@ -95,6 +104,6 @@
     min-width: 20rem;
   }
   .resume-section-info-list {
-    max-width: 100%;
+    display: flex;
   }
 }
