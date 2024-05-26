@@ -1,0 +1,96 @@
+.container-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.projects-title {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.project-name {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.project-content1,
+.project-content2,
+.project-content3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-one,
+.project-two,
+.project-three {
+  font-size: 1rem;
+  width: 90%;
+  max-width: 692px;
+}
+
+.image-project1,
+.image-project2,
+.image-project3 {
+  width: 90%;
+  max-width: 692px;
+  margin-bottom: 2rem;
+}
+
+.first-parag,
+.second-parag,
+.third-parag {
+  text-align: justify;
+  flex: 1;
+  font-size: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .container-projects {
+    max-width: 90%;
+  }
+  .project-name {
+    text-align: start;
+  }
+  .project-one,
+  .project-two,
+  .project-three {
+    width: 100%;
+    max-width: 90%;
+  }
+  .image-project1,
+  .image-project2,
+  .image-project3 {
+    width: 100%;
+    max-width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container-projects {
+    max-width: 80%;
+  }
+  .projects-title {
+    align-self: flex-start;
+  }
+  .project-content1,
+  .project-content2,
+  .project-content3 {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  .image-project1,
+  .image-project2,
+  .image-project3 {
+    width: 100%;
+    max-width: 50%;
+  }
+}
