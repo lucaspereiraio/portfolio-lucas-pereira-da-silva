@@ -1,0 +1,46 @@
+.nav-top-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.nav-top-menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-logo {
+  width: 2.5rem;
+}
+
+.nav-content {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav .right-content {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+nav .right-content a:hover {
+  color: rgb(150, 107, 54);
+  transition: all 0.7s linear;
+}
+
+.link-with-border {
+  border-left: 1px solid;
+  padding-left: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-top-menu {
+    margin: 1rem 10%;
+    flex-direction: row;
+  }
+}
