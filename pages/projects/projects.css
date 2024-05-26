@@ -32,14 +32,14 @@
 .project-two,
 .project-three {
   font-size: 1rem;
-  width: 90%;
+  width: 100%;
   max-width: 692px;
 }
 
 .image-project1,
 .image-project2,
 .image-project3 {
-  width: 90%;
+  width: 100%;
   max-width: 692px;
   margin-bottom: 2rem;
 }
