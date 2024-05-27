@@ -35,8 +35,6 @@
   margin-bottom: 2rem;
   text-align: justify;
   margin: 0 1rem;
-  /* width: 90%; */
-  /* max-width: 90%; */
 }
 
 .container-buttons {
@@ -44,12 +42,12 @@
   justify-content: center;
   font-size: 1rem;
   font-weight: bolder;
-  gap: 0 1rem;
+  gap: 15%;
 }
 
 .welcome-buttons {
-  height: 5rem;
   width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   border: solid 1px #0000006e;
   display: flex;
@@ -58,15 +56,11 @@
 }
 
 .resume-button {
-  background-color: #eea302;
+  background-color: #ffb860;
 }
 
 .projects-button {
-  background-color: #ff3619;
-}
-
-.contact-button {
-  background-color: #80d8da;
+  background-color: #ffb860;
 }
 
 .container-buttons a {
@@ -101,7 +95,6 @@
     justify-content: center;
     margin: 0 auto;
     width: 80%;
-    /* gap: 2rem; */
   }
   .image-wolf {
     width: 20rem;
@@ -110,7 +103,6 @@
   }
   .container-description {
     margin-top: 2rem;
-    /* margin-right: 2rem; */
     margin-bottom: 2rem;
   }
   .welcome-title {
@@ -119,8 +111,5 @@
   }
   .welcome-description {
     text-align: justify;
-  }
-  .container-buttons {
-    gap: 0 2rem;
   }
 }
