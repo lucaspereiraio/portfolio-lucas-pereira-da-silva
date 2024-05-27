@@ -1,4 +1,7 @@
 .container-projects {
+  background-color: rgb(241, 234, 226);
+  padding: 0% 3%;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,17 +23,23 @@
 
 .project-content1,
 .project-content2,
-.project-content3 {
+.project-content3,
+.project-content4 {
+  background-color: rgb(216, 210, 203);
+  padding: 0% 3%;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 10%;
 }
 
 .project-one,
 .project-two,
-.project-three {
+.project-three,
+.project-four {
   font-size: 1rem;
   width: 100%;
   max-width: 692px;
@@ -38,7 +47,8 @@
 
 .image-project1,
 .image-project2,
-.image-project3 {
+.image-project3,
+.image-project4 {
   width: 100%;
   max-width: 692px;
   margin-bottom: 2rem;
@@ -46,7 +56,8 @@
 
 .first-parag,
 .second-parag,
-.third-parag {
+.third-parag,
+.fourth-parag {
   text-align: justify;
   flex: 1;
   font-size: 1rem;
@@ -62,13 +73,15 @@
   }
   .project-one,
   .project-two,
-  .project-three {
+  .project-three,
+  .project-four {
     width: 100%;
     max-width: 90%;
   }
   .image-project1,
   .image-project2,
-  .image-project3 {
+  .image-project3,
+  .image-project4 {
     width: 100%;
     max-width: 90%;
   }
@@ -83,14 +96,17 @@
   }
   .project-content1,
   .project-content2,
-  .project-content3 {
+  .project-content3,
+  .project-content4 {
     flex-direction: row;
     gap: 3rem;
   }
   .image-project1,
   .image-project2,
-  .image-project3 {
+  .image-project3,
+  .image-project4 {
     width: 100%;
     max-width: 50%;
+    margin: 2rem 0;
   }
 }
