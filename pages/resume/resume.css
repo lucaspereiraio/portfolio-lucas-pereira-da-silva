@@ -17,8 +17,8 @@
 }
 
 .resume-section-container {
-  /* background-color: rgb(241, 234, 226);
-  padding: 5%; */
+  background-color: rgb(241, 234, 226);
+  padding: 3%;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,8 @@
 }
 
 .resume-section-info-container {
-  /* background-color: rgb(216, 210, 203);
-  padding: 2%; */
+  background-color: rgb(216, 210, 203);
+  padding: 3%;
   border-radius: 1rem;
   display: flex;
   flex-direction: column-reverse;
@@ -72,13 +72,15 @@
   }
   .resume-section-container {
     max-width: 90%;
+    padding: 3%;
   }
   .resume-section-info-container {
     align-items: center;
     flex-direction: row;
     width: 100%;
-    max-width: 100%;
+    max-width: 95%;
     gap: 0;
+    padding: 3% 2.5%;
   }
   .resume-section-info {
     max-width: 90%;
@@ -105,5 +107,6 @@
   }
   .resume-section-info-list {
     display: flex;
+    gap: 20%;
   }
 }
