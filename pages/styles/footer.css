@@ -59,6 +59,10 @@ footer a {
   text-decoration: underline;
 }
 
+.nav-logo {
+  border-radius: 50%;
+}
+
 @media only screen and (min-width: 1024px) {
   .div-footer {
     flex-direction: row;
