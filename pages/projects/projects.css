@@ -64,6 +64,11 @@
   width: 100%;
 }
 
+h4 {
+  color: rgb(63, 63, 63);
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
   .container-projects {
     max-width: 90%;
@@ -84,6 +89,9 @@
   .image-project4 {
     width: 100%;
     max-width: 90%;
+  }
+  h4 {
+    text-align: start;
   }
 }
 
