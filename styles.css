@@ -4,12 +4,41 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  --main-background-color: #f9f9f9;
+  --second-background-color: #f1eae2;
+  --third-background-color: #d8d2cb;
+  --text-color: #333333;
+}
+
+body.dark-theme {
+  --main-background-color: #010409;
+  --second-background-color: #212121;
+  --third-background-color: #2f2f2f;
+  --text-color: #f9f9f9;
+}
+
 body {
   display: flex;
   justify-content: center;
-  background-color: #f3f3f3;
+  background-color: var(--main-background-color);
+  color: var(--text-color);
   padding: 0px;
   margin: 0 auto;
   font-family: "Work Sans", sans-serif;
   box-sizing: border-box;
+}
+
+.sun-icon::before {
+  content: "☀️";
+}
+
+.moon-icon::before {
+  content: "🌙";
+}
+
+#toggle-theme {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

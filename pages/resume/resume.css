@@ -1,3 +1,13 @@
+:root {
+  --second-background-color: #f1eae2;
+  --third-background-color: #d8d2cb;
+}
+
+.dark-theme {
+  --second-background-color: #212121;
+  --third-background-color: #2f2f2f;
+}
+
 .resume-cointainer {
   display: flex;
   flex-direction: column;
@@ -17,7 +27,7 @@
 }
 
 .resume-section-container {
-  background-color: rgb(241, 234, 226);
+  background-color: var(--second-background-color);
   padding: 3%;
   border-radius: 1rem;
   display: flex;
@@ -26,7 +36,7 @@
 }
 
 .resume-section-info-container {
-  background-color: rgb(216, 210, 203);
+  background-color: var(--third-background-color);
   padding: 3%;
   border-radius: 1rem;
   display: flex;

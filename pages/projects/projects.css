@@ -1,5 +1,17 @@
+:root {
+  --second-background-color: #f1eae2;
+  --third-background-color: #d8d2cb;
+  --h4-color: #3f3f3f;
+}
+
+.dark-theme {
+  --second-background-color: #212121;
+  --third-background-color: #2f2f2f;
+  --h4-color: #a0a0a0;
+}
+
 .container-projects {
-  background-color: rgb(241, 234, 226);
+  background-color: var(--second-background-color);
   padding: 0% 3%;
   border-radius: 1rem;
   display: flex;
@@ -25,7 +37,7 @@
 .project-content2,
 .project-content3,
 .project-content4 {
-  background-color: rgb(216, 210, 203);
+  background-color: var(--third-background-color);
   padding: 0% 3%;
   border-radius: 1rem;
   display: flex;
@@ -65,7 +77,7 @@
 }
 
 h4 {
-  color: rgb(63, 63, 63);
+  color: var(--h4-color);
   text-align: center;
 }
 

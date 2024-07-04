@@ -1,3 +1,11 @@
+:root {
+  --text-color: #333333;
+}
+
+footer.dark-theme {
+  --text-color: #f3f3f3;
+}
+
 .div-footer {
   display: flex;
   flex-direction: column;
@@ -15,7 +23,7 @@
   list-style: none;
   align-items: center;
   font-size: 1.125rem;
-  color: black;
+  color: var(--text-color);
   font-weight: 600;
   margin-top: 1rem;
   gap: 1rem;
@@ -40,7 +48,7 @@
 
 footer a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
 }
 
 #politicas {
