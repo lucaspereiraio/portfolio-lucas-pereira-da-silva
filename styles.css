@@ -13,6 +13,7 @@
 
 body.dark-theme {
   --main-background-color: #010409;
+  --header-and-footer-bgc: #21252b
   --second-background-color: #212121;
   --third-background-color: #2f2f2f;
   --text-color: #f9f9f9;
