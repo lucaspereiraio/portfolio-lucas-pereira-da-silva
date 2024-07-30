@@ -1,6 +1,16 @@
 var pages = {};
+var langData = {};
+var currentLang = "en"; // Default language
 
-async function fetchpages() {
+// Função para buscar os dados de tradução do lang.json
+async function fetchLangData() {
+  await fetch("lang.json")
+    .then((res) => res.json())
+    .then((data) => (langData = data));
+}
+
+// Função para buscar o conteúdo das páginas HTML
+async function fetchPages() {
   const contentDiv = document.getElementById("app");
   contentDiv.innerHTML = "Loading page...";
 
@@ -13,44 +23,66 @@ async function fetchpages() {
   await fetch("pages/projects/projects.html")
     .then((res) => res.text())
     .then((data) => (pages.projects = data));
-  await fetch("pages/contact/contact.html")
-    .then((res) => res.text())
-    .then((data) => (pages.contact = data));
 }
 
-fetchpages()
-  .then(() => {
-    function getContent(pageId) {
-      return pages[pageId];
-    }
+// Função de inicialização
+async function initialize() {
+  await fetchLangData();
+  await fetchPages();
 
-    function loadContent() {
-      // faz com que a variavel contentDiv seja a <div id="app" />
-      const contentDiv = document.getElementById("app");
-      // pega qual a hashtag (#) que esta no endereco da pagina
-      pageId = location.hash.substring(1);
-      // variavel conteudo da pagina recebe o retorno da funcao pegarConteudo()
-      const pageContent = getContent(pageId);
-      // adiciona na variavePaginal contentDiv (<div id="app" />) o conteudo da pagina
-      contentDiv.innerHTML = pageContent;
-      //verifica se a pagina eh a pagina contact. Se for adiciona o endereco do arquivo html na variavel src
-      var src = pageId === "contact" ? "pages/contact/contact.js" : undefined;
-      // verifica se a variavel src tem algum valor. Se tiver gera a tag <script /> na sessao head da pagina index.html
-      if (src) {
-        var script = document.createElement("script");
-        script.setAttribute("src", src);
-        document.getElementsByTagName("head")[0].appendChild(script);
-      }
-    }
+  // Define a hash para home se não houver uma hash na URL
+  if (!location.hash) {
+    location.hash = "#home";
+  }
 
-    if (!location.hash) {
-      location.hash = "#home";
-    }
+  // Carrega o conteúdo da página inicial
+  loadContent();
+  // Aplica as traduções iniciais
+  applyTranslations();
 
-    loadContent();
+  // Adiciona evento para mudança de hash (navegação entre páginas)
+  window.addEventListener("hashchange", loadContent);
 
-    window.addEventListener("hashchange", loadContent);
-  })
-  .catch(() => {
-    document.getElementById("app").innerHTML = "Error ao carregar a pagina";
+  // Adiciona evento para mudança de idioma
+  document
+    .getElementById("languageSelector")
+    .addEventListener("change", (event) => {
+      currentLang = event.target.value;
+      applyTranslations();
+    });
+}
+
+// Função para obter o conteúdo da página pelo id
+function getContent(pageId) {
+  return pages[pageId];
+}
+
+// Função para carregar o conteúdo da página
+function loadContent() {
+  // faz com que a variavel contentDiv seja a <div id="app" />
+  const contentDiv = document.getElementById("app");
+  // pega qual a hashtag (#) que esta no endereco da pagina
+  const pageId = location.hash.substring(1);
+  // variavel conteudo da pagina recebe o retorno da funcao getContent()
+  const pageContent = getContent(pageId);
+  // adiciona na variavel contentDiv (<div id="app" />) o conteudo da pagina
+  contentDiv.innerHTML = pageContent;
+
+  applyTranslations();
+}
+
+// Função para aplicar as traduções baseadas no idioma selecionado
+function applyTranslations() {
+  document.querySelectorAll("[data-translate]").forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    element.textContent = langData[currentLang][key];
   });
+
+  // Atualiza o título do documento
+  document.title = langData[currentLang]["navTitle"];
+}
+
+// Inicializa o script, lidando com possíveis erros
+initialize().catch(() => {
+  document.getElementById("app").innerHTML = "Error ao carregar a pagina";
+});

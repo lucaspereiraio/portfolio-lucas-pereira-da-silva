@@ -1,3 +1,7 @@
+button {
+  cursor: pointer;
+}
+
 .nav-top-menu {
   display: flex;
   flex-direction: column;
@@ -37,6 +41,14 @@ nav .right-content a:hover {
   border-left: 1px solid;
   padding-left: 1rem;
 }
+
+/* .pt-icon::before {
+  content: "🇧🇷";
+}
+
+.en-icon::before {
+  content: "🇺🇸";
+} */
 
 @media only screen and (min-width: 768px) {
   .nav-top-menu {
