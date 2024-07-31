@@ -52,11 +52,6 @@ nav .right-content a:hover {
   gap: 0.1rem;
 }
 
-.language-button:hover {
-  color: rgb(150, 107, 54);
-  transition: all 0.7s linear;
-}
-
 @media only screen and (min-width: 768px) {
   .nav-top-menu {
     margin: 1rem 10%;
