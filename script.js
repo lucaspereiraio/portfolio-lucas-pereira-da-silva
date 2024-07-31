@@ -1,15 +1,15 @@
 var pages = {};
 var langData = {};
-var currentLang = "en"; // Default language
+var currentLang = "en"; // Current language, by default english
 
-// Função para buscar os dados de tradução do lang.json
+// Funçction to fetch the translation data (lang.json)
 async function fetchLangData() {
   await fetch("lang.json")
     .then((res) => res.json())
     .then((data) => (langData = data));
 }
 
-// Função para buscar o conteúdo das páginas HTML
+// Function to fetch the pages content
 async function fetchPages() {
   const contentDiv = document.getElementById("app");
   contentDiv.innerHTML = "Loading page...";
@@ -25,64 +25,75 @@ async function fetchPages() {
     .then((data) => (pages.projects = data));
 }
 
-// Função de inicialização
+// Initialize function
 async function initialize() {
   await fetchLangData();
   await fetchPages();
 
-  // Define a hash para home se não houver uma hash na URL
+  // Get the language in the localStorage
+  const savedLang = localStorage.getItem("selectedLanguage");
+  if (savedLang) {
+    currentLang = savedLang;
+  }
+
+  // Define the languageSelector value according to the currentLang
+  document.getElementById("languageSelector").value = currentLang;
+
+  // Hash defined to home when there is not a hash in URL
   if (!location.hash) {
     location.hash = "#home";
   }
 
-  // Carrega o conteúdo da página inicial
+  // Load the homepage content
   loadContent();
-  // Aplica as traduções iniciais
+  // Apply the initial translations
   applyTranslations();
 
-  // Adiciona evento para mudança de hash (navegação entre páginas)
+  //  Add an event listener to change the hash in pagen navigation
   window.addEventListener("hashchange", loadContent);
 
-  // Adiciona evento para mudança de idioma
+  // Add an event listener to language changing
   document
     .getElementById("languageSelector")
     .addEventListener("change", (event) => {
       currentLang = event.target.value;
+      localStorage.setItem("selectedLanguage", currentLang); // Save the current language on the local storage and set it by default
       applyTranslations();
     });
 }
 
-// Função para obter o conteúdo da página pelo id
+// Function to get the page content by the id
 function getContent(pageId) {
   return pages[pageId];
 }
 
-// Função para carregar o conteúdo da página
+// Function to load the page content
 function loadContent() {
-  // faz com que a variavel contentDiv seja a <div id="app" />
+  // var contentDiv = <div id="app" />
   const contentDiv = document.getElementById("app");
-  // pega qual a hashtag (#) que esta no endereco da pagina
+  // Get the hastag (#) that is in the page address
   const pageId = location.hash.substring(1);
-  // variavel conteudo da pagina recebe o retorno da funcao getContent()
+  // Var pageContent get the getContent return
   const pageContent = getContent(pageId);
-  // adiciona na variavel contentDiv (<div id="app" />) o conteudo da pagina
+  // Add an inner HTML to the var contentDiv (<div id="app" />)
   contentDiv.innerHTML = pageContent;
 
   applyTranslations();
 }
 
-// Função para aplicar as traduções baseadas no idioma selecionado
+// Function to applu all the translations based on the selected language
 function applyTranslations() {
+  // Apply the translations to the elements with the data-translate attribute
   document.querySelectorAll("[data-translate]").forEach((element) => {
     const key = element.getAttribute("data-translate");
     element.textContent = langData[currentLang][key];
   });
 
-  // Atualiza o título do documento
+  // Update the navTitle based on the currentLang
   document.title = langData[currentLang]["navTitle"];
 }
 
-// Inicializa o script, lidando com possíveis erros
+// Initialize the script and take care of the possible Errors
 initialize().catch(() => {
   document.getElementById("app").innerHTML = "Error ao carregar a pagina";
 });
