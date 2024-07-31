@@ -36,9 +36,6 @@ async function initialize() {
     currentLang = savedLang;
   }
 
-  // Define the languageSelector value according to the currentLang
-  document.getElementById("languageSelector").value = currentLang;
-
   // Hash defined to home when there is not a hash in URL
   if (!location.hash) {
     location.hash = "#home";
@@ -54,9 +51,9 @@ async function initialize() {
 
   // Add an event listener to language changing
   document
-    .getElementById("languageSelector")
-    .addEventListener("change", (event) => {
-      currentLang = event.target.value;
+    .getElementById("languageButton")
+    .addEventListener("click", (event) => {
+      toggleLanguage();
       localStorage.setItem("selectedLanguage", currentLang); // Save the current language on the local storage and set it by default
       applyTranslations();
     });
@@ -81,7 +78,7 @@ function loadContent() {
   applyTranslations();
 }
 
-// Function to applu all the translations based on the selected language
+// Function to apply all the translations based on the selected language
 function applyTranslations() {
   // Apply the translations to the elements with the data-translate attribute
   document.querySelectorAll("[data-translate]").forEach((element) => {
@@ -91,6 +88,15 @@ function applyTranslations() {
 
   // Update the navTitle based on the currentLang
   document.title = langData[currentLang]["navTitle"];
+}
+
+// Function to toggle between the languages
+function toggleLanguage() {
+  if (currentLang === "en") {
+    currentLang = "pt";
+  } else {
+    currentLang = "en";
+  }
 }
 
 // Initialize the script and take care of the possible Errors

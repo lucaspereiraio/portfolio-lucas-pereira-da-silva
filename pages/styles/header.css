@@ -42,13 +42,20 @@ nav .right-content a:hover {
   padding-left: 1rem;
 }
 
-/* .pt-icon::before {
-  content: "🇧🇷";
+.language-button {
+  display: flex;
+  border: none;
+  font-weight: 550;
+  cursor: pointer;
+  background-color: transparent;
+  align-items: center;
+  gap: 0.1rem;
 }
 
-.en-icon::before {
-  content: "🇺🇸";
-} */
+.language-button:hover {
+  color: rgb(150, 107, 54);
+  transition: all 0.7s linear;
+}
 
 @media only screen and (min-width: 768px) {
   .nav-top-menu {
