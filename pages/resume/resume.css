@@ -1,4 +1,4 @@
-.resume-cointainer {
+.resume-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,8 +63,12 @@
   margin-bottom: 3.75rem;
 }
 
+.hard-skill-subtitle {
+  font-weight: 550;
+}
+
 @media only screen and (min-width: 768px) {
-  .resume-cointainer {
+  .resume-container {
     max-width: 90%;
   }
   .resume-section-title {

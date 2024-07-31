@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio</title>
+    <title data-translate="navTitle">Portifólio - Lucas Pereira da Silva</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css"
+    />
   </head>
-
   <body>
     <div class="main-wrapper">
       <header>
@@ -19,13 +26,28 @@
                 src="images/Perfil-trabalho-cortada.ico"
                 alt="Logo foto pessoal"
             /></a>
-            <a class="nav-title" href="#home"><strong>Lucas Pereira da Silva</strong></a>
+            <a class="nav-title" href="#home"
+              ><strong>Lucas Pereira da Silva</strong></a
+            >
           </div>
 
           <div class="right-content nav-content">
-            <a class="nav-hover" href="#resume">Resume</a>
+            <a class="nav-hover" href="#resume" data-translate="resumeLink"
+              >Resume</a
+            >
             <div class="link-with-border">
-              <a class="nav-hover" href="#projects">Projects</a>
+              <a
+                class="nav-hover"
+                href="#projects"
+                data-translate="projectsLink"
+                >Projects</a
+              >
+            </div>
+            <div class="link-with-border">
+              <button id="languageButton" class="language-button">
+                <span class="flag-icon flag-icon-gb"></span>
+                <span class="flag-icon flag-icon-br"></span>
+              </button>
             </div>
           </div>
         </nav>
@@ -35,30 +57,48 @@
       <footer>
         <div class="div-footer">
           <div class="footer-content">
-            Telephone
-            <div class="li-footer-lighter">(61) 98622-8097</div>
-          </div>
-          <div class="footer-content">
-            Email
-            <div class="li-footer-lighter-email">
-              <a href="lucas.dev.pereira@gmail.com">lucas.dev.pereira@gmail.com</a>
+            <span data-translate="footerTelephoneLabel">Telephone</span>
+            <div class="li-footer-lighter" data-translate="footerTelephone">
+              (61) 98622-8097
             </div>
           </div>
           <div class="footer-content">
-            Follow me
-            <div><a class="click-site-footer" href="https://www.linkedin.com/in/lucas-pereira-da-silva-unb/"> in 😸</a></div>
+            <span data-translate="footerEmailLabel">Email</span>
+            <div class="li-footer-lighter-email">
+              <a
+                href="mailto:lucas.dev.pereira@gmail.com"
+                data-translate="footerEmail"
+                >lucas.dev.pereira@gmail.com</a
+              >
+            </div>
+          </div>
+          <div class="footer-content">
+            <span data-translate="footerFollowLabel">Follow me</span>
+            <div>
+              <a
+                class="click-site-footer"
+                href="https://www.linkedin.com/in/lucas-pereira-da-silva-unb/"
+                data-translate="footerFollowLink"
+              >
+                in 😸</a
+              >
+            </div>
           </div>
           <div class="footer-content" id="politicas">
-              <div>© 2024 By Lucas Pereira.</div>
-              <div class="politicas-lower">
-                Proudly created with
-                <a class="footer-link-criado" href="https://github.com/lucaspereiraio"
-                  >github.com/lucaspereiraio</a
-                >
-              </div>
+            <div data-translate="footerCopyright">© 2024 By Lucas Pereira.</div>
+            <div class="politicas-lower">
+              <span data-translate="footerProudly">Proudly created with</span>
+              <a
+                class="footer-link-criado"
+                href="https://github.com/lucaspereiraio"
+                data-translate="footerLink"
+                >github.com/lucaspereiraio</a
+              >
+            </div>
           </div>
         </div>
       </footer>
     </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

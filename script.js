@@ -1,6 +1,16 @@
 var pages = {};
+var langData = {};
+var currentLang = "en"; // Current language, by default english
 
-async function fetchpages() {
+// Funçction to fetch the translation data (lang.json)
+async function fetchLangData() {
+  await fetch("lang.json")
+    .then((res) => res.json())
+    .then((data) => (langData = data));
+}
+
+// Function to fetch the pages content
+async function fetchPages() {
   const contentDiv = document.getElementById("app");
   contentDiv.innerHTML = "Loading page...";
 
@@ -13,44 +23,83 @@ async function fetchpages() {
   await fetch("pages/projects/projects.html")
     .then((res) => res.text())
     .then((data) => (pages.projects = data));
-  await fetch("pages/contact/contact.html")
-    .then((res) => res.text())
-    .then((data) => (pages.contact = data));
 }
 
-fetchpages()
-  .then(() => {
-    function getContent(pageId) {
-      return pages[pageId];
-    }
+// Initialize function
+async function initialize() {
+  await fetchLangData();
+  await fetchPages();
 
-    function loadContent() {
-      // faz com que a variavel contentDiv seja a <div id="app" />
-      const contentDiv = document.getElementById("app");
-      // pega qual a hashtag (#) que esta no endereco da pagina
-      pageId = location.hash.substring(1);
-      // variavel conteudo da pagina recebe o retorno da funcao pegarConteudo()
-      const pageContent = getContent(pageId);
-      // adiciona na variavePaginal contentDiv (<div id="app" />) o conteudo da pagina
-      contentDiv.innerHTML = pageContent;
-      //verifica se a pagina eh a pagina contact. Se for adiciona o endereco do arquivo html na variavel src
-      var src = pageId === "contact" ? "pages/contact/contact.js" : undefined;
-      // verifica se a variavel src tem algum valor. Se tiver gera a tag <script /> na sessao head da pagina index.html
-      if (src) {
-        var script = document.createElement("script");
-        script.setAttribute("src", src);
-        document.getElementsByTagName("head")[0].appendChild(script);
-      }
-    }
+  // Get the language in the localStorage
+  const savedLang = localStorage.getItem("selectedLanguage");
+  if (savedLang) {
+    currentLang = savedLang;
+  }
 
-    if (!location.hash) {
-      location.hash = "#home";
-    }
+  // Hash defined to home when there is not a hash in URL
+  if (!location.hash) {
+    location.hash = "#home";
+  }
 
-    loadContent();
+  // Load the homepage content
+  loadContent();
+  // Apply the initial translations
+  applyTranslations();
 
-    window.addEventListener("hashchange", loadContent);
-  })
-  .catch(() => {
-    document.getElementById("app").innerHTML = "Error ao carregar a pagina";
+  //  Add an event listener to change the hash in pagen navigation
+  window.addEventListener("hashchange", loadContent);
+
+  // Add an event listener to language changing
+  document
+    .getElementById("languageButton")
+    .addEventListener("click", (event) => {
+      toggleLanguage();
+      localStorage.setItem("selectedLanguage", currentLang); // Save the current language on the local storage and set it by default
+      applyTranslations();
+    });
+}
+
+// Function to get the page content by the id
+function getContent(pageId) {
+  return pages[pageId];
+}
+
+// Function to load the page content
+function loadContent() {
+  // var contentDiv = <div id="app" />
+  const contentDiv = document.getElementById("app");
+  // Get the hastag (#) that is in the page address
+  const pageId = location.hash.substring(1);
+  // Var pageContent get the getContent return
+  const pageContent = getContent(pageId);
+  // Add an inner HTML to the var contentDiv (<div id="app" />)
+  contentDiv.innerHTML = pageContent;
+
+  applyTranslations();
+}
+
+// Function to apply all the translations based on the selected language
+function applyTranslations() {
+  // Apply the translations to the elements with the data-translate attribute
+  document.querySelectorAll("[data-translate]").forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    element.textContent = langData[currentLang][key];
   });
+
+  // Update the navTitle based on the currentLang
+  document.title = langData[currentLang]["navTitle"];
+}
+
+// Function to toggle between the languages
+function toggleLanguage() {
+  if (currentLang === "en") {
+    currentLang = "pt";
+  } else {
+    currentLang = "en";
+  }
+}
+
+// Initialize the script and take care of the possible Errors
+initialize().catch(() => {
+  document.getElementById("app").innerHTML = "Error ao carregar a pagina";
+});
