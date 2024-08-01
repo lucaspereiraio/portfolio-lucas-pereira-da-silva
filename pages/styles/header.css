@@ -56,7 +56,17 @@ nav .right-content a:hover {
   gap: 0.1rem;
 }
 
-button {
+.sun-icon::after {
+  content: "☀️";
+}
+
+.moon-icon::after {
+  content: "🌙";
+}
+
+#toggle-theme {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 

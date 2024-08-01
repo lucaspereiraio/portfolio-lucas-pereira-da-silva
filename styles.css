@@ -29,17 +29,3 @@ body {
   font-family: "Work Sans", sans-serif;
   box-sizing: border-box;
 }
-
-.sun-icon::before {
-  content: "☀️";
-}
-
-.moon-icon::before {
-  content: "🌙";
-}
-
-#toggle-theme {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
