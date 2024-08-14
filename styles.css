@@ -22,6 +22,7 @@ body.dark-theme {
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: var(--main-background-color);
   color: var(--text-color);
   padding: 0px;
