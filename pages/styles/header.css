@@ -1,5 +1,9 @@
-button {
-  cursor: pointer;
+:root {
+  --text-color: #333333;
+}
+
+header.dark-theme {
+  --text-color: #f3f3f3;
 }
 
 .nav-top-menu {
@@ -13,7 +17,7 @@ button {
 
 .nav-top-menu a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
 }
 
 .nav-logo {
@@ -27,12 +31,12 @@ button {
   gap: 1rem;
 }
 
-nav .right-content {
+.right-content {
   font-size: 1.1rem;
   font-weight: 500;
 }
 
-nav .right-content a:hover {
+.right-content a:hover {
   color: rgb(150, 107, 54);
   transition: all 0.7s linear;
 }
@@ -50,6 +54,20 @@ nav .right-content a:hover {
   background-color: transparent;
   align-items: center;
   gap: 0.1rem;
+}
+
+.sun-icon::after {
+  content: "☀️";
+}
+
+.moon-icon::after {
+  content: "🌙";
+}
+
+#toggle-theme {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
